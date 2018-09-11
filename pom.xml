@@ -1,0 +1,81 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>mloukili</groupId>
+	<artifactId>flat-converter</artifactId>
+  	<version>1.0.0-SNAPSHOT</version><!--bn.version-->
+	<packaging>jar</packaging>
+	<name>Flat File Parser and Converter</name>
+
+	<description>Flat File Parser and Converter</description>
+
+	<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
+    <organization>
+        <name>mloukili</name>
+        <url>https://www.bluenimble.com</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>mloukili@bluenimble.com</id>
+            <name>Mohammed Loukili</name>
+            <email>mloukili@bluenimble.com</email>
+            <organization>BlueNimble, Inc.</organization>
+            <organizationUrl>http://www.bluenimble.com</organizationUrl>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+                <role>founder</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+    
+    <build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.0.2</version>
+				<configuration>
+					<outputDirectory>build/lib</outputDirectory>
+					<excludes>
+						<exclude>main/</exclude>
+					</excludes>
+					<archive>
+						<manifestEntries>
+							<Built-By>mloukili</Built-By>
+							<url>https://www.bluenimble.com</url>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+  
+</project>
