@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><data><hs><h_0>Name</h_0><h_1>Address</h_1><h_2>Email</h_2></hs><rs><r><c_0>Joe Demo</c_0><c_1>2 Demo&apos; Street,
+Demoville,
+
+Australia. 2615</c_1><c_2>joe@someaddress.com</c_2></r><r><c_0>Jim Sample</c_0><c_1>&quot;3 Sample Street, Sampleville, Australia. 2615&quot;</c_1><c_2>jim@sample.com</c_2></r><r></r><r></r><r><c_0>Jack Example</c_0><c_1>&quot;1 Example &amp;Street, Exampleville, Australia.</c_1></r><r><c_0>2615&quot;</c_0><c_1>jack@example.com</c_1></r></rs></data>

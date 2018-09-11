@@ -1,0 +1,101 @@
+1- Goal
+	1-1 Give a simple and rich api to parse and convert fixed and 'delimeted and fixed' text files to specific formats
+	1-2 Give an implemetation of this Api to convert 'delimeted and fixed' files to xml and 'vis vers ca'
+2- Design
+	2-1 package com.beesphere.flat.reader
+		Interface FlatReader 
+			This interface defines two methods to implemets by a vendor specific logic.
+				void read (InputStream input) throws FlatReaderException
+					reading an input stream
+				void reset ();
+					reseting, back to zero. This allow us to reuse this reader in future needs
+	
+	2-2 package com.beesphere.flat.reader.impls	
+		Class AbstractFlatReader implements FlatReader
+			This Class insures the parsing of flat files using a Strategy telling the parser to use a character 
+			as delimiter, another as escpe...
+			This Class is abstract letting SubClasses implementing the logic beyond the parsing mecanism 
+			It supports setting a charset for parsing
+			void visitStart () throws FlatReaderException
+				Invoked when the parser starts reading the flat file
+			void visitLine (String [] line, int lineNum) throws FlatReaderException
+				Invoked when the parser creates a line from the flat file
+			void visitEnd () throws FlatReaderException;
+				Invoked when the parser ends parsing the flat file
+			FlatToken nextToken (FlatToken tkn)
+				It's the value of a field. Csv is different that fixed and others
+			
+		Class FlatStrategy
+			Here are the options that can be used 
+			(Note that the line delimeter is carriage and can be changed, 
+			following CSV, FixedLength standard ):
+			
+			Those Used by Delimited Files:
+			
+			char delimiter
+				The fields Delimiter (usualy is ',')
+			char encapsulator
+				When the line contains carriages and may contain the delimeter as part of the content,
+				We use encapsulator character to surround the field ((usualy is '"')
+			char commentStart
+				The flat file may contain commeted lines and this is the comment char (usualy is '#')
+			char escape
+				Used to escape characters like the delimeter, encapsulator
+			boolean ignoreLeadingWhitespaces (default false)
+				Ignore Field Leading Whitespaces
+			boolean ignoreTrailingWhitespaces (default false)
+				Ignore Field Trailing Whitespaces
+			boolean interpretUnicodeEscapes (default false)
+				Interpret unicode escaped chars (like \u0070 -> p)
+			boolean ignoreEmptyLines (default true)
+				Ignore Empty Lines
+				
+			Those Used by Fixed Length Files:
+				
+			boolean ignoreAdditionalFields (default false)
+				Ignore Additional Fields
+			int [] lengths
+				Lengths of fields [15, 16, 48, 65, 47]
+			boolean handlingShortLines (default false)
+				If The line has a length less that the sum of lengths, do the parser throws an error or handles it
+				
+	2-3 package com.beesphere.flat.reader.impls.xml
+		Class FlatToXmlConverter extends AbstractFlatReader
+			This class implements visitStart, visitLine and visitEnd to output an xml format of the flat file.
+			It uses an OutputStream and the parent class charset to create a good writer to write the xml output.
+			By default the Output is System.out
+			It has some options related to Xml generation:
+				boolean omitXmlDeclaration (default false)
+					Add the Xml Declaration statement
+				boolean firstLineAsHeader (default false)
+					Consideres the first line as header
+				boolean ignoreEmptyCells (default true)
+					do not output emty cell corresponding to empty lines
+				String namespace
+					a namespace to add to every xml node
+				String [] xmlns		
+					a set of namespaces to add to the root of the generated document
+				
+		Class CsvToXmlConverter extends FlatToXmlConverter
+			Implements nextToken (FlatToken tkn)
+			
+		Class FixedLengthToXmlConverter extends FlatToXmlConverter
+			Overrides getLine ()
+			
+3 - Usage:
+    3-1 Csv To Xml 
+		CsvToXmlConverter parser = new CsvToXmlConverter ();
+		parser.setFirstLineAsHeader (true);
+		parser.getStrategy().setIgnoreEmptyLines (false);
+		parser.getStrategy().setCommentStart ('#');
+		parser.getStrategy().setDelimiter (',');
+		parser.read (new FileInputStream (new File ("files/addresses.csv")));
+
+    3-2 FixedLength To Xml 
+		FixedLengthToXmlConverter parser = new FixedLengthToXmlConverter ();
+		parser.setFirstLineAsHeader (true);
+		parser.getStrategy().setIgnoreEmptyLines (false);
+		parser.getStrategy().setCommentStart ('#');
+		parser.getStrategy().setLengths (new int [] {5, 7, 2});
+		parser.read (new FileInputStream (new File ("files/employees.csv")));
+				
