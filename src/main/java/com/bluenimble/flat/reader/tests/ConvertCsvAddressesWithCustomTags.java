@@ -1,4 +1,4 @@
-package com.beesphere.flat.reader.tests;
+package com.bluenimble.flat.reader.tests;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,8 +9,8 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.beesphere.flat.reader.FlatReaderException;
-import com.beesphere.flat.reader.impls.xml.CsvToXmlConverter;
+import com.bluenimble.flat.reader.FlatReaderException;
+import com.bluenimble.flat.reader.impls.xml.CsvToXmlConverter;
 
 public class ConvertCsvAddressesWithCustomTags {
 	

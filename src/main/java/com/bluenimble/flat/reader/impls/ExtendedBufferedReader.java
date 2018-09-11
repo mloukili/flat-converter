@@ -1,4 +1,4 @@
-package com.beesphere.flat.reader.impls;
+package com.bluenimble.flat.reader.impls;
 
 import java.io.BufferedReader;
 import java.io.IOException;

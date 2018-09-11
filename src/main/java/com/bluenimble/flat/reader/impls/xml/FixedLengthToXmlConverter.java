@@ -1,11 +1,11 @@
-package com.beesphere.flat.reader.impls.xml;
+package com.bluenimble.flat.reader.impls.xml;
 
 import java.io.IOException;
 import java.io.OutputStream;
 
-import com.beesphere.flat.lang.LangUtils;
-import com.beesphere.flat.reader.FlatReaderException;
-import com.beesphere.flat.reader.impls.FlatToken;
+import com.bluenimble.flat.lang.LangUtils;
+import com.bluenimble.flat.reader.FlatReaderException;
+import com.bluenimble.flat.reader.impls.FlatToken;
 
 public class FixedLengthToXmlConverter extends FlatToXmlConverter {
 	

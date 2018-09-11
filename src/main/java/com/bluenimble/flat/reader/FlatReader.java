@@ -1,4 +1,4 @@
-package com.beesphere.flat.reader;
+package com.bluenimble.flat.reader;
 
 import java.io.InputStreamReader;
 import java.io.Serializable;

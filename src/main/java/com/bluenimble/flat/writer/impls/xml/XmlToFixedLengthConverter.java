@@ -1,10 +1,10 @@
-package com.beesphere.flat.writer.impls.xml;
+package com.bluenimble.flat.writer.impls.xml;
 
 import java.io.IOException;
 import java.io.OutputStream;
 
-import com.beesphere.flat.lang.LangUtils;
-import com.beesphere.flat.writer.FlatWriterException;
+import com.bluenimble.flat.lang.LangUtils;
+import com.bluenimble.flat.writer.FlatWriterException;
 
 public class XmlToFixedLengthConverter extends SaxFlatWriter {
 	

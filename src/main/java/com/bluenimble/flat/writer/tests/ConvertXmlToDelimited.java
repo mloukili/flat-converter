@@ -1,4 +1,4 @@
-package com.beesphere.flat.writer.tests;
+package com.bluenimble.flat.writer.tests;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -6,8 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import com.beesphere.flat.writer.FlatWriterException;
-import com.beesphere.flat.writer.impls.xml.XmlToCsvConverter;
+import com.bluenimble.flat.writer.FlatWriterException;
+import com.bluenimble.flat.writer.impls.xml.XmlToCsvConverter;
 
 public class ConvertXmlToDelimited {
 	

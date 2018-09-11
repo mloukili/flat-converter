@@ -1,10 +1,10 @@
-package com.beesphere.flat.reader.impls;
+package com.bluenimble.flat.reader.impls;
 
 /**
  * A simple StringBuffer replacement that aims to reduce copying as much as
  * possible. The buffer grows as necessary. This class is not thread safe.
  * 
- * @author BeeSphere Team
+ * @author mloukili
  */
 public class CharBuffer {
 

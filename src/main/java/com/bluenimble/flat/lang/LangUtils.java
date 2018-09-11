@@ -1,4 +1,4 @@
-package com.beesphere.flat.lang;
+package com.bluenimble.flat.lang;
 
 import java.nio.charset.Charset;
 

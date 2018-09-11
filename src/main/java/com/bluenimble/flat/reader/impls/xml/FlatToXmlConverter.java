@@ -1,4 +1,4 @@
-package com.beesphere.flat.reader.impls.xml;
+package com.bluenimble.flat.reader.impls.xml;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -7,10 +7,11 @@ import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.beesphere.flat.lang.LangUtils;
-import com.beesphere.flat.reader.FlatReaderException;
-import com.beesphere.flat.reader.impls.AbstractFlatReader;
-import com.qlogic.commons.utils.strings.StringUtils;
+import org.apache.commons.text.StringEscapeUtils;
+
+import com.bluenimble.flat.lang.LangUtils;
+import com.bluenimble.flat.reader.FlatReaderException;
+import com.bluenimble.flat.reader.impls.AbstractFlatReader;
 
 public abstract class FlatToXmlConverter extends AbstractFlatReader {
 	
@@ -123,7 +124,7 @@ public abstract class FlatToXmlConverter extends AbstractFlatReader {
 				continue;
 			}
 			writer.write (LangUtils.LESS);writeTag (cellTag, recordNumber, i);writer.write (LangUtils.GREATER);
-			writer.write (StringUtils.escapeXML (buffer, cell));
+			writer.write (StringEscapeUtils.escapeXml10 (cell));
 			writer.write (LangUtils.LESS);writer.write (LangUtils.SLASH);writeTag (cellTag, recordNumber, i);writer.write (LangUtils.GREATER);
 		}
 		if (tag != null) {

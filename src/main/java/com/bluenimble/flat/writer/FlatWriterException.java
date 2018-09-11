@@ -1,4 +1,4 @@
-package com.beesphere.flat.writer;
+package com.bluenimble.flat.writer;
 
 public class FlatWriterException extends Exception {
 

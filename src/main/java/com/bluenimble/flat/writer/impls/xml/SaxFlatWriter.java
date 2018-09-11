@@ -1,4 +1,4 @@
-package com.beesphere.flat.writer.impls.xml;
+package com.bluenimble.flat.writer.impls.xml;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,10 +15,10 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import com.beesphere.flat.lang.LangUtils;
-import com.beesphere.flat.reader.impls.FlatStrategy;
-import com.beesphere.flat.writer.FlatWriter;
-import com.beesphere.flat.writer.FlatWriterException;
+import com.bluenimble.flat.lang.LangUtils;
+import com.bluenimble.flat.reader.impls.FlatStrategy;
+import com.bluenimble.flat.writer.FlatWriter;
+import com.bluenimble.flat.writer.FlatWriterException;
 
 public abstract class SaxFlatWriter extends DefaultHandler implements FlatWriter {
 	

@@ -1,13 +1,13 @@
-package com.beesphere.flat.reader.impls;
+package com.bluenimble.flat.reader.impls;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
-import com.beesphere.flat.lang.LangUtils;
-import com.beesphere.flat.reader.FlatReader;
-import com.beesphere.flat.reader.FlatReaderException;
+import com.bluenimble.flat.lang.LangUtils;
+import com.bluenimble.flat.reader.FlatReader;
+import com.bluenimble.flat.reader.FlatReaderException;
 
 /**
  * Parses CSV files according to the specified configuration.
@@ -24,11 +24,13 @@ import com.beesphere.flat.reader.FlatReaderException;
  * reader-state.
  * </p>
  * 
- * @author BeeSphere Team
+ * @author mloukili
  * 
  */
 public abstract class AbstractFlatReader implements FlatReader {
 	
+	private static final long serialVersionUID = 4249051785885731893L;
+
 	protected Charset charset = LangUtils.DEFAULT_CHARSET;
 
 	// the input stream
@@ -70,7 +72,7 @@ public abstract class AbstractFlatReader implements FlatReader {
 	protected abstract void visitEnd () throws FlatReaderException;
 
 	/**
-	 * Parses from the current point in the stream til the end of the current
+	 * Parses from the current point in the stream till the end of the current
 	 * line.
 	 * 
 	 * @return array of values til end of line ('null' when end of file has been

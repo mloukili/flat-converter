@@ -1,4 +1,4 @@
-package com.beesphere.flat.reader;
+package com.bluenimble.flat.reader;
 
 public class FlatReaderException extends Exception {
 

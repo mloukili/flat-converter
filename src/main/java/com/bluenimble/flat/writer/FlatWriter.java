@@ -1,4 +1,4 @@
-package com.beesphere.flat.writer;
+package com.bluenimble.flat.writer;
 
 import java.io.InputStreamReader;
 import java.io.Serializable;
